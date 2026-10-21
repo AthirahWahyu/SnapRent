@@ -1,0 +1,268 @@
+/* ==========================================================================
+   SnapRent - Main Stylesheet (style.css)
+   ========================================================================== */
+
+/* --- CSS Variables & Design Tokens --- */
+:root {
+  --bg-page: #ffffff;
+  --card-bg: #ffffff;
+  --text-primary: #000000;
+  --text-secondary: #71717a;
+  --text-muted: #111111;
+  --link-color: #4361ee;
+  --link-hover: #2b44c2;
+
+  --btn-bg: #000000;
+  --btn-hover: #1f1f1f;
+  --btn-active: #333333;
+  --btn-disabled: #555555;
+  --btn-text: #ffffff;
+
+  --border-color: #000000;
+  --focus-ring: rgba(0, 0, 0, 0.15);
+
+  --alert-bg: #fee2e2;
+  --alert-border: #f87171;
+  --alert-text: #b91c1c;
+
+  --font-main:
+    "Inter", "Segoe UI", -apple-system, BlinkMacSystemFont, sans-serif;
+  --radius-card: 20px;
+  --radius-input: 4px;
+  --radius-btn: 8px;
+}
+
+/* --- Reset & Global --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg-page);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-main);
+  color: var(--text-primary);
+  padding: 24px;
+}
+
+/* --- Container & Card --- */
+.login-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-card {
+  position: relative;
+  background-color: var(--card-bg);
+  width: 100%;
+  max-width: 440px;
+  border-radius: var(--radius-card);
+  padding: 56px 44px 44px 44px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* --- Avatar Header --- */
+.avatar {
+  position: absolute;
+  top: -42px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 84px;
+  height: 84px;
+  background-color: var(--card-bg);
+  border: 2px solid var(--border-color);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.avatar svg {
+  width: 46px;
+  height: 46px;
+  margin-top: 6px;
+}
+
+/* --- Heading --- */
+.login-card h1 {
+  font-size: 26px;
+  font-weight: 700;
+  font-style: italic;
+  text-align: center;
+  color: var(--text-primary);
+  margin-bottom: 24px;
+  letter-spacing: -0.3px;
+}
+
+/* --- Alert / Error Box --- */
+#error-alert {
+  display: none;
+  background-color: var(--alert-bg);
+  border: 1px solid var(--alert-border);
+  color: var(--alert-text);
+  padding: 10px 14px;
+  border-radius: 6px;
+  font-size: 13.5px;
+  line-height: 1.4;
+  margin-bottom: 18px;
+  word-break: break-word;
+}
+
+/* --- Form & Input Elements --- */
+.input-group {
+  position: relative;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+}
+
+.input-icon {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  color: #333333;
+}
+
+.input-icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.input-group input {
+  width: 100%;
+  height: 50px;
+  border: 1.5px solid var(--border-color);
+  border-radius: var(--radius-input);
+  padding: 0 14px 0 46px;
+  font-size: 15px;
+  font-family: inherit;
+  color: var(--text-primary);
+  background-color: var(--card-bg);
+  outline: none;
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.input-group input::placeholder {
+  color: var(--text-secondary);
+  font-size: 15px;
+}
+
+.input-group input:focus {
+  border-color: var(--border-color);
+  box-shadow: 0 0 0 2px var(--focus-ring);
+}
+
+/* --- Options Row (Remember Me & Forgot Password) --- */
+.options-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+  margin-bottom: 26px;
+  font-size: 13.5px;
+}
+
+.remember-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  color: var(--text-muted);
+  user-select: none;
+  font-weight: 500;
+}
+
+.remember-label input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  border: 1.5px solid var(--border-color);
+  border-radius: 2px;
+  cursor: pointer;
+  accent-color: var(--border-color);
+}
+
+.forgot-link {
+  color: var(--link-color);
+  text-decoration: underline;
+  font-weight: 500;
+  transition: color 0.15s ease;
+}
+
+.forgot-link:hover {
+  color: var(--link-hover);
+}
+
+/* --- Submit Button --- */
+button[type="submit"] {
+  width: 100%;
+  height: 48px;
+  background-color: var(--btn-bg);
+  color: var(--btn-text);
+  border: none;
+  border-radius: var(--radius-btn);
+  font-size: 17px;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    opacity 0.2s ease;
+}
+
+button[type="submit"]:hover {
+  background-color: var(--btn-hover);
+}
+
+button[type="submit"]:active {
+  background-color: var(--btn-active);
+}
+
+button[type="submit"]:disabled {
+  background-color: var(--btn-disabled);
+  cursor: not-allowed;
+  opacity: 0.8;
+}
+
+/* --- Responsive Media Queries --- */
+@media (max-width: 480px) {
+  .login-card {
+    padding: 50px 24px 32px 24px;
+    border-radius: 16px;
+  }
+
+  .avatar {
+    width: 76px;
+    height: 76px;
+    top: -38px;
+  }
+
+  .avatar svg {
+    width: 40px;
+    height: 40px;
+  }
+
+  .login-card h1 {
+    font-size: 22px;
+    margin-bottom: 20px;
+  }
+
+  .options-row {
+    font-size: 13px;
+  }
+}
